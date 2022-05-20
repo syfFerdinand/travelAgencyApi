@@ -1,0 +1,180 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/automobiles":
+    get:
+      summary: list automobiles
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create automobile
+      responses:
+        '200':
+          description: successful
+  "/api/v1/automobiles/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show automobile
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update automobile
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update automobile
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete automobile
+      responses:
+        '200':
+          description: successful
+  "/api/v1/cities":
+    get:
+      summary: list cities
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create city
+      responses:
+        '200':
+          description: successful
+  "/api/v1/cities/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show city
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update city
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update city
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete city
+      responses:
+        '200':
+          description: successful
+  "/api/v1/guides":
+    get:
+      summary: list guides
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create guide
+      responses:
+        '200':
+          description: successful
+  "/api/v1/guides/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show guide
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update guide
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update guide
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete guide
+      responses:
+        '200':
+          description: successful
+  "/api/v1/cities/{city_id}/sites":
+    parameters:
+    - name: city_id
+      in: path
+      description: city_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: list sites
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create site
+      responses:
+        '200':
+          description: successful
+  "/api/v1/cities/{city_id}/sites/{id}":
+    parameters:
+    - name: city_id
+      in: path
+      description: city_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show site
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update site
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update site
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete site
+      responses:
+        '200':
+          description: successful
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
