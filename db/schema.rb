@@ -17,17 +17,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_20_102735) do
     t.string "autoModel"
     t.text "autoDescription"
     t.integer "autoAvailable"
-    t.integer "autoDelete"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "cities", force: :cascade do |t|
-    t.string "CityRef"
-    t.string "CityName"
-    t.text "CityDescriptif"
-    t.date "CityDateCreated"
-    t.integer "delete"
+    t.string "cityRef"
+    t.string "cityName"
+    t.text "cityDescriptif"
+    t.date "cityDateCreated"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,23 +36,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_20_102735) do
     t.string "FirstName"
     t.integer "Age"
     t.string "sex"
-    t.integer "available"
-    t.integer "delete"
+    t.integer "guideAvailable"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "sites", force: :cascade do |t|
-    t.string "SiteRef"
-    t.string "SiteName"
-    t.text "SiteDescription"
-    t.date "SiteOpeningDate"
-    t.integer "delete"
-    t.integer "city_id", null: false
+    t.string "siteRef"
+    t.string "siteName"
+    t.text "siteDescription"
+    t.date "siteOpeningDate"
+    t.integer "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_sites_on_city_id"
   end
 
-  add_foreign_key "sites", "cities"
 end

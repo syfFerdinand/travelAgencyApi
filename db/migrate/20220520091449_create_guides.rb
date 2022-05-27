@@ -6,8 +6,7 @@ class CreateGuides < ActiveRecord::Migration[7.0]
       t.string :FirstName
       t.integer :Age
       t.string :sex
-      t.integer :available
-      t.integer :delete
+      t.integer :guideAvailable
 
       t.timestamps
     end

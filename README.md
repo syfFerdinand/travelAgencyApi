@@ -1,7 +1,6 @@
-# README
+# Demo Api with Ruby on Rails 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Url path of the documentation : {{defaulthost}}/api-docs/index.html
 
 Things you may want to cover:
 
@@ -15,11 +14,10 @@ Things you may want to cover:
 
 * Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+    bin/rails db:migrate
 
 * Deployment instructions
 
+    bin/rails server
 * ...
 # travelAgencyApi

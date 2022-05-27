@@ -5,6 +5,8 @@ RSpec.describe 'api/v1/automobiles', type: :request do
   path '/api/v1/automobiles' do
 
     get('list automobiles') do
+      tags 'Automobiles'
+
       response(200, 'successful') do
 
         after do |example|
@@ -14,12 +16,28 @@ RSpec.describe 'api/v1/automobiles', type: :request do
             }
           }
         end
+        run_test!
+      end
+
+      response(404, 'Not Found') do
         run_test!
       end
     end
 
     post('create automobile') do
-      response(200, 'successful') do
+      tags 'Automobiles'
+      consumes 'application/json'
+      parameter name: :automobile, in: :body, schema: {
+        type: :object,
+        properties: { 
+          autoBrand: {type: :string},
+          autoModel: {type: :string},
+          autoDescription: {type: :string},
+        },
+        required: [ 'autoBrand','autoModel','autoDescription']
+      }
+
+      response(201, 'successful') do
 
         after do |example|
           example.metadata[:response][:content] = {
@@ -30,6 +48,12 @@ RSpec.describe 'api/v1/automobiles', type: :request do
         end
         run_test!
       end
+      
+      response(400, 'Bad Request') do
+        
+        run_test!
+      end
+
     end
   end
 
@@ -38,6 +62,9 @@ RSpec.describe 'api/v1/automobiles', type: :request do
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
     get('show automobile') do
+      tags 'Automobiles'
+
+
       response(200, 'successful') do
         let(:id) { '123' }
 
@@ -50,9 +77,24 @@ RSpec.describe 'api/v1/automobiles', type: :request do
         end
         run_test!
       end
+
+      response(404, 'Not Found') do
+        run_test!
+      end
+
     end
 
     patch('update automobile') do
+      tags 'Automobiles'
+      consumes 'application/json'
+      parameter name: :automobile, in: :body, schema: {
+        type: :object,
+        properties: { 
+          autoBrand: {type: :string},
+          autoModel: {type: :string},
+          autoDescription: {type: :string},
+        },
+      }
       response(200, 'successful') do
         let(:id) { '123' }
 
@@ -65,10 +107,31 @@ RSpec.describe 'api/v1/automobiles', type: :request do
         end
         run_test!
       end
+
+      response(404, 'Not Found') do
+        run_test!
+      end
+
+      response(400, 'Bad Request') do
+        run_test!
+      end
+
     end
 
     put('update automobile') do
-      response(200, 'successful') do
+      tags 'Automobiles'
+      consumes 'application/json'
+      parameter name: :automobile, in: :body, schema: {
+        type: :object,
+        properties: { 
+          autoBrand: {type: :string},
+          autoModel: {type: :string},
+          autoDescription: {type: :string},
+        },
+        required: [ 'autoBrand','autoModel','autoDescription']
+      }
+
+      response(204, 'successful') do
         let(:id) { '123' }
 
         after do |example|
@@ -80,10 +143,21 @@ RSpec.describe 'api/v1/automobiles', type: :request do
         end
         run_test!
       end
+
+      response(404, 'Not Found') do
+        run_test!
+      end
+
+      response(400, 'Bad Request') do
+        run_test!
+      end
+
     end
 
     delete('delete automobile') do
-      response(200, 'successful') do
+      tags 'Automobiles'
+      
+      response(204, 'successful') do
         let(:id) { '123' }
 
         after do |example|
@@ -95,6 +169,17 @@ RSpec.describe 'api/v1/automobiles', type: :request do
         end
         run_test!
       end
+
+      response(404, 'Not Found') do
+        run_test!
+      end
+
+      response(400, 'Bad Request') do
+        run_test!
+      end
+
     end
+
   end
+
 end

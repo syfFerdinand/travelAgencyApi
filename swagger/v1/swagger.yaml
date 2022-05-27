@@ -7,14 +7,39 @@ paths:
   "/api/v1/automobiles":
     get:
       summary: list automobiles
+      tags:
+      - Automobiles
       responses:
         '200':
           description: successful
+        '404':
+          description: Not Found
     post:
       summary: create automobile
+      tags:
+      - Automobiles
+      parameters: []
       responses:
-        '200':
+        '201':
           description: successful
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                autoBrand:
+                  type: string
+                autoModel:
+                  type: string
+                autoDescription:
+                  type: string
+              required:
+              - autoBrand
+              - autoModel
+              - autoDescription
   "/api/v1/automobiles/{id}":
     parameters:
     - name: id
@@ -25,35 +50,112 @@ paths:
         type: string
     get:
       summary: show automobile
+      tags:
+      - Automobiles
       responses:
         '200':
           description: successful
+        '404':
+          description: Not Found
     patch:
       summary: update automobile
+      tags:
+      - Automobiles
+      parameters: []
       responses:
         '200':
           description: successful
+        '404':
+          description: Not Found
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                autoBrand:
+                  type: string
+                autoModel:
+                  type: string
+                autoDescription:
+                  type: string
     put:
       summary: update automobile
+      tags:
+      - Automobiles
+      parameters: []
       responses:
-        '200':
+        '204':
           description: successful
+        '404':
+          description: Not Found
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                autoBrand:
+                  type: string
+                autoModel:
+                  type: string
+                autoDescription:
+                  type: string
+              required:
+              - autoBrand
+              - autoModel
+              - autoDescription
     delete:
       summary: delete automobile
+      tags:
+      - Automobiles
       responses:
-        '200':
+        '204':
           description: successful
+        '404':
+          description: Not Found
+        '400':
+          description: Bad Request
   "/api/v1/cities":
     get:
       summary: list cities
+      tags:
+      - Cities
       responses:
         '200':
           description: successful
+        '404':
+          description: Not Found
     post:
       summary: create city
+      tags:
+      - Cities
+      parameters: []
       responses:
-        '200':
+        '201':
           description: successful
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cityName:
+                  type: string
+                cityDescriptif:
+                  type: string
+                cityDateCreated:
+                  type: date
+              required:
+              - cityName
+              - cityDescriptif
+              - cityDateCreated
   "/api/v1/cities/{id}":
     parameters:
     - name: id
@@ -64,35 +166,115 @@ paths:
         type: string
     get:
       summary: show city
+      tags:
+      - Cities
       responses:
         '200':
           description: successful
+        '404':
+          description: Not Found
     patch:
       summary: update city
+      tags:
+      - Cities
+      parameters: []
       responses:
         '200':
           description: successful
+        '404':
+          description: Not Found
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cityName:
+                  type: string
+                cityDescriptif:
+                  type: string
+                cityDateCreated:
+                  type: date
     put:
       summary: update city
+      tags:
+      - Cities
+      parameters: []
       responses:
-        '200':
+        '204':
           description: successful
+        '404':
+          description: Not Found
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cityName:
+                  type: string
+                cityDescriptif:
+                  type: string
+                cityDateCreated:
+                  type: date
+              required:
+              - cityName
+              - cityDescriptif
+              - cityDateCreated
     delete:
       summary: delete city
+      tags:
+      - Cities
       responses:
-        '200':
+        '204':
           description: successful
+        '404':
+          description: Not Found
+        '400':
+          description: Bad Request
   "/api/v1/guides":
     get:
       summary: list guides
+      tags:
+      - Guides
       responses:
         '200':
           description: successful
+        '404':
+          description: Not Found
     post:
       summary: create guide
+      tags:
+      - Guides
+      parameters: []
       responses:
-        '200':
+        '201':
           description: successful
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                LastName:
+                  type: string
+                FirstName:
+                  type: string
+                Age:
+                  type: integer
+                sex:
+                  type: string
+              required:
+              - LastName
+              - FirstName
+              - Age
+              - sex
   "/api/v1/guides/{id}":
     parameters:
     - name: id
@@ -103,24 +285,81 @@ paths:
         type: string
     get:
       summary: show guide
+      tags:
+      - Guides
       responses:
         '200':
           description: successful
+        '404':
+          description: Not Found
     patch:
       summary: update guide
+      tags:
+      - Guides
+      parameters: []
       responses:
         '200':
           description: successful
+        '404':
+          description: Not Found
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                LastName:
+                  type: string
+                FirstName:
+                  type: string
+                Age:
+                  type: integer
+                sex:
+                  type: string
     put:
       summary: update guide
+      tags:
+      - Guides
+      parameters: []
       responses:
-        '200':
+        '204':
           description: successful
+        '404':
+          description: Not Found
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                LastName:
+                  type: string
+                FirstName:
+                  type: string
+                Age:
+                  type: integer
+                sex:
+                  type: string
+              required:
+              - LastName
+              - FirstName
+              - Age
+              - sex
     delete:
       summary: delete guide
+      tags:
+      - Guides
       responses:
-        '200':
+        '204':
           description: successful
+        '404':
+          description: Not Found
+        '400':
+          description: Bad Request
   "/api/v1/cities/{city_id}/sites":
     parameters:
     - name: city_id
@@ -131,22 +370,40 @@ paths:
         type: string
     get:
       summary: list sites
+      tags:
+      - Sites
       responses:
         '200':
           description: successful
     post:
       summary: create site
+      tags:
+      - Sites
+      parameters: []
       responses:
-        '200':
+        '201':
           description: successful
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                siteName:
+                  type: string
+                siteDescription:
+                  type: text
+                siteOpeningDate:
+                  type: date
+              required:
+              - siteName
+              - siteDescription
+              - siteOpeningDate
+              - city_id
   "/api/v1/cities/{city_id}/sites/{id}":
     parameters:
-    - name: city_id
-      in: path
-      description: city_id
-      required: true
-      schema:
-        type: string
     - name: id
       in: path
       description: id
@@ -155,26 +412,83 @@ paths:
         type: string
     get:
       summary: show site
+      tags:
+      - Sites
       responses:
         '200':
           description: successful
+        '404':
+          description: Not Found
     patch:
       summary: update site
+      tags:
+      - Sites
+      parameters: []
       responses:
         '200':
           description: successful
+        '404':
+          description: Not Found
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                siteName:
+                  type: string
+                siteDescription:
+                  type: text
+                siteOpeningDate:
+                  type: date
+                city_id:
+                  type: integer
     put:
       summary: update site
+      tags:
+      - Sites
+      parameters: []
       responses:
-        '200':
+        '204':
           description: successful
+        '404':
+          description: Not Found
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                siteName:
+                  type: string
+                siteDescription:
+                  type: text
+                siteOpeningDate:
+                  type: date
+                city_id:
+                  type: integer
+              required:
+              - siteName
+              - siteDescription
+              - siteOpeningDate
+              - city_id
     delete:
       summary: delete site
+      tags:
+      - Sites
       responses:
-        '200':
+        '204':
           description: successful
+        '404':
+          description: Not Found
+        '400':
+          description: Bad Request
 servers:
-- url: https://{defaultHost}
+- url: http://{defaultHost}
   variables:
     defaultHost:
-      default: www.example.com
+      default: localhost:3000

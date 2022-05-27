@@ -6,7 +6,6 @@ class CreateAutomobiles < ActiveRecord::Migration[7.0]
       t.string :autoModel
       t.text :autoDescription
       t.integer :autoAvailable
-      t.integer :autoDelete
 
       t.timestamps
     end
